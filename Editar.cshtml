@@ -1,0 +1,37 @@
+﻿@model AccentureMovie.Models.Movie
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <header class="jumbotron text-center">
+        Editar Pelicula
+    </header>
+
+    <main class="container">
+        <form method="post">
+            <label for="txtTitulo">Titulo</label>
+            @Html.EditorFor(m => m.Title, new { htmlAttributes = new{ @class = "form-control" }})
+            
+            <label for="txtTitulo">Fecha de lanzamiento:</label>
+            <input class="form-control" type="date" name="Releasedate" value="@((this.Model != null)?string.Format("{0:yyyy-MM-dd}", this.Model.ReleaseDate): String.Empty)" placeholder="ingrese un titulo" />
+
+            <label for="txtTitulo">Minutos de durancion</label>
+            <input class="form-control" type="number" name="runningtime" value="@((this.Model != null)?this.Model.runningTime : 0)" placeholder="ingrese un titulo" />
+            
+            <button class="btn btn-primary form-control">Entrar</button>
+        </form>
+    </main>
+</body>
+</html>
